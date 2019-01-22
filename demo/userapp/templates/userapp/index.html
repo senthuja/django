@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+	<a href="/employee/add"> Add employee </a>
+	<h2>List of {{title}}</h2>
+	{% if users %}
+		<ul>
+			{% for users in Users %}
+				<li>
+					{{user.first_name}} &nbsp;
+					{{user.last_name}}
+					<a href="/employee/{{user.id}}/details"> Details </a>
+					<a href="/employee/{{user.id}}/delete"> Delete </a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p> There is no questions available . </p>
+	{% endif %}  
+{% endblock content %}
